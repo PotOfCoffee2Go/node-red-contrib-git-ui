@@ -11,6 +11,7 @@ const successInitMessage = 'init written successfully'
 module.exports = {
   commit: (userDir, message) => new Promise((resolve, reject) => {
     // deletes package.json
+    /*
     if (fs.existsSync(`${userDir}/package.json`)) {
       fs.unlink(`${userDir}/package.json`, (err) => {
         if (err && err.code !== fileDoesNotExist) {
@@ -25,7 +26,7 @@ module.exports = {
         reject(error)
       } else if (stderr && !stderr.includes(successInitMessage)) {
         reject(stderr)
-      } else {
+      } else { */
         // commits and pushes all changes to the remote branch
         git.add('--all').commit(message).push(remote, branch, (ex, data) => {
           if (ex) {
@@ -34,8 +35,8 @@ module.exports = {
             resolve(data)
           }
         })
-      }
-    })
+/*      }
+    }) */
   }),
 
   createLocalRepo: (userDir) => new Promise((resolve, reject) => {
