@@ -20,7 +20,7 @@ Requires [Node-Red](http://nodered.org) version 0.16.2 or more recent.
 1. Start Node-Red at the desired user directory (via *node-red -u /some/path*)
 2. Install the git-ui node from the pallete or via npm install. An empty git repo will be created at the user directory if not already present.
 3. Open the config tab on git-ui and set the SSH URL for the remote repo. Currently only accepts URLs in the format git@\<server\>:\<user\>/\<repo\>.git
-4. Click 'Save and Update'. A 'staging' branch will be created on both local and remote repos if not already present.
+4. Click 'Save and Update'. A 'flows' branch will be created on both local and remote repos if not already present.
 5. Done!
 
 ## Usage

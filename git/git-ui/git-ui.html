@@ -134,10 +134,10 @@
     <script type="text/javascript">
       $(function () {
         GitUI.checkRemote().then(() => {
-          GitUI.checkout('staging').then(() => {
+          GitUI.checkout('flows').then(() => {
             GitUI.branches()
           }).catch((err) => {
-            Alert.error('Error Checking out Staging!', err)
+            Alert.error('Error Checking out Flows branch!', err)
             GitUI.disable()
           })
         })
@@ -226,7 +226,7 @@
                 if (statusSummary.modified.length > 0 || GitUI.getRemote !== $('.git-ui .tab-pane.config input').val()) {
                   $('#updateModal').modal('show')
                 } else {
-                  GitUI.update('staging', false)
+                  GitUI.update('flows', false)
                 }
               })
             }
@@ -235,7 +235,7 @@
 
         $('#forceUpdate').on('click', (event) => {
           event.preventDefault()
-          GitUI.update('staging', true)
+          GitUI.update('flows', true)
         })
 
         $('#cancelUpdate').on('click', (event) => {
@@ -651,11 +651,11 @@
             // Check if remote url is set
             if (r.url) {
               GitUI.status().then((statusSummary) => {
-                // Check if current branch is 'staging'
-                if (statusSummary.tracking && statusSummary.tracking.substring(statusSummary.tracking.indexOf('/') + 1) === 'staging') {
+                // Check if current branch is 'flows'
+                if (statusSummary.tracking && statusSummary.tracking.substring(statusSummary.tracking.indexOf('/') + 1) === 'flows') {
                   resolve()
                 } else {
-                  Alert.error('The current branch is not \'staging\'. Please click on \'Save and Update\' at the config tab to create the correct branch.')
+                  Alert.error('The current branch is not \'flows\'. Please click on \'Save and Update\' at the config tab to create the correct branch.')
                   GitUI.toggleEnableCommit(false)
                   reject()
                 }

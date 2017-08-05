@@ -4,7 +4,7 @@ const fs = require('fs')
 const exec = require('child_process').exec
 
 const remote = 'origin'
-const branch = 'staging'
+const branch = 'flows'
 const fileDoesNotExist = 'ENOENT'
 const successInitMessage = 'init written successfully'
 
@@ -216,7 +216,7 @@ module.exports = {
                   }
                 })
               }
-              // if not on branch staging, checks out origin/staging
+              // if not on branch flows, checks out origin/flows
               if (statusSummary.tracking !== `${remote}/${branch}`) {
                 git.checkout(branchName, (err, result) => {
                   if (err) {
